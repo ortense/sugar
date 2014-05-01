@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Sugar!</title>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Didact+Gothic">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/global.css">
+	<script src="/libraries/jquery.js"></script>
+	<script src="/libraries/angular.js"></script>
+	<script src="/scripts/app.js"></script>
+</head>
+<body>
+	<section class="container">
+		<header class="jumbotron">
+			<h1>Marcus Ortense</h1>
+			<h2>By <a href="https://github.com/ortense/">Marcus Ortense</a></h2>
+		</header>
+		<article ng-controller="SugarCtrl">
+			<h2>Teste de Data Binding com angular JS</h2>
+			<h3>Número de clicks {{count}}</h3>
+			<button type="button" class="btn btn-lg btn-primary" ng-click="plusOne()">+1</button>
+			<button type="button" class="btn btn-lg btn-danger"  ng-click="lessOne()">-1</button>	
+		</article>
+	</section>
+</body>
+</html>

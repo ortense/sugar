@@ -1,0 +1,24 @@
+{
+  "name": "sugar",
+  "version": "0.0.1",
+  "authors": [
+    "Marcus Ortense <marcus.ortense@outlook.com>"
+  ],
+  "description": "front-end tester",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.9",
+    "angular": "1.2",
+    "bootstrap": "3",
+    "polymer": "~0.2.3"
+  }
+}
