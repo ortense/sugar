@@ -1,24 +1,64 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="pt-br" ng-app>
 <head>
 	<meta charset="UTF-8">
 	<title>Sugar!</title>
+	
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Didact+Gothic">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="styles/global.css">
+	<link rel="stylesheet" href="styles/highlight.css">
+	
 	<script src="libraries/jquery.js"></script>
 	<script src="libraries/angular.js"></script>
+	<script src="libraries/polymer.js"></script>
 	<script src="scripts/app.js"></script>
+	
+	<link rel="import" href="components/highlight.html">
+
 </head>
 <body>
 	<section class="container">
 		<header class="jumbotron">
 			<h1>Sugar!</h1>
 			<h2>Por <a href="https://github.com/ortense/">Marcus Ortense</a></h2>
-			<p>Área pare teste, exemplos e outras nerdisses que podem me vir a calhar (:</p>
+			<p>Área para teste, exemplos e outras nerdisses que podem me vir a calhar (:</p>
+			<p>Tudo muito superficial em uma página, se funcionar corretamente eu devo passar para o blog, quando ele ficar pronto rs</p>
 		</header>
-		<article>
-			<h3>Teste de Data Binding com angular JS</h2>
+		<article id="elementos-customizados-com-polymer">
+			<h3>Elementos customizados com Polymer</h3>
+			<p>"Uma tendência para o futuro" é a melhor definição que consigo pensar para custom elements.</p>
+			<p>
+				Todo código escrito aqui deve usar o <a href="https://github.com/deepak1556/highlight-code-element">highlight-code-element</a>, um componente reaproveitavel escrito em html com a ajuda do Polymer.
+			</p>
+			<p>O componete é muito bom e eu realmente recomendo a utilização (:</p>
+			<p>Nesse caso tudo que eu fiz foi:</p>
+			<highlight-code width="100%" height="auto">
+&lt;!doctype html>
+&lt;html lang="pt-br">
+&lt;head>
+	&lt;!-- css que estiliza o código -->
+	&lt;link rel="stylesheet" href="highlight.css">
+	&lt;!-- nesse caso especificamente jQuery é uma dependencia, mas não é obrigatorio -->
+	&lt;script src="jquery.js">&lt;/script>
+	&lt;!-- biblioteca do polymer -->
+	&lt;script src="polymer.js">&lt;/script>
+	
+	&lt;link rel="import" href="highlight.html">
+	&lt;title>Document&lt;/title>
+&lt;/head>
+&lt;body>
+	&lt;!-- chamar meu componente -->
+	&lt;highlight-code width="100%" height="auto">
+		&lt;!-- todo o codigo fica aqui -->
+	&lt;/highlight-code>
+&lt;/body>
+&lt;/html>
+			</highlight-code>
+			<p>O unico cuidado para html é o escape do "<" e  reiniciar a identação que pode ser visto no código fonte</p>
+		</article>
+		<article id="data-binding-com-angular-js">
+			<h3>Data Binding com angular JS</h2>
 			<div ng-controller="SugarCountCtrl">
 				<p><strong>Contador em {{count}}</strong></p>
 				<p>
@@ -41,8 +81,47 @@
 				Outro ponto que gostei muito é a praticidade de reaproveitamento, posso criar varios "componentes"
 				com o mesmo controller sem que um interfira no outro, talvez seja uma combinação poderosa pra o Polymer.
 			</p>
-		</article>
+			<p>Minha Controller para esse exemplo:</p>
+			<highlight-code width="100%" height="auto">
+function SugarCountCtrl($scope) {
+	//o contador é uma propriedade do escopo dessa controller
+	$scope.count = 0;
 	
+	//funções chamadas pelos botões
+	$scope.plusOne = function(){
+		$scope.count++
+	};
+	
+	$scope.lessOne = function(){
+		$scope.count--
+	};
+
+	return $scope;
+}
+			</highlight-code>
+			<p>
+				Feito isso foi só escrever minha "view", mais ou menos assim:
+			</p>
+			<highlight-code width="100%" height="auto">
+&lt;!doctype html>
+&lt;html lang="pt-br" ng-app>
+&lt;head>
+	&lt;!-- biblioteca do Angular -->
+	&lt;script src="angular.js">&lt;/script>
+	&lt;title>Document&lt;/title>
+&lt;/head>
+&lt;body>
+	&lt;div ng-controller="SugarCountCtrl">
+		&lt;p>&lt;strong>Outro contador {{count}}&lt;/strong>&lt;/p>
+		&lt;p>
+			&lt;button type="button" class="btn btn btn-success" ng-click="plusOne()">mais um&lt;/button>
+			&lt;button type="button" class="btn btn btn-warning" ng-click="lessOne()">menos um&lt;/button>
+		&lt;/p>
+	&lt;/div>
+&lt;/body>
+&lt;/html>
+			</highlight-code>
+		</article>
 	</section>
 </body>
 </html>
