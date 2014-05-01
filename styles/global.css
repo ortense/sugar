@@ -1,0 +1,28 @@
+body {
+	font-family: 'Didact Gothic', sans-serif; 
+}
+
+/* sobrecargas no bootstrap */
+
+.container{
+	width: 100%;	
+}
+	.container .jumbotron{
+		margin-top: 15px;
+		border-radius: 0;
+	}
+
+	.container article{
+		width: 49.5%;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+		article h1, article h2,
+		article h3, article h4{
+			text-indent: 21px;
+		}
+		article p{
+			padding: 0 1em;
+			text-align: justify;
+		}

@@ -6,22 +6,43 @@
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Didact+Gothic">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="styles/global.css">
-	<script src="/libraries/jquery.js"></script>
-	<script src="/libraries/angular.js"></script>
-	<script src="/scripts/app.js"></script>
+	<script src="libraries/jquery.js"></script>
+	<script src="libraries/angular.js"></script>
+	<script src="scripts/app.js"></script>
 </head>
 <body>
 	<section class="container">
 		<header class="jumbotron">
-			<h1>Marcus Ortense</h1>
-			<h2>By <a href="https://github.com/ortense/">Marcus Ortense</a></h2>
+			<h1>Sugar!</h1>
+			<h2>Por <a href="https://github.com/ortense/">Marcus Ortense</a></h2>
+			<p>Área pare teste, exemplos e outras nerdisses que podem me vir a calhar (:</p>
 		</header>
-		<article ng-controller="SugarCtrl">
-			<h2>Teste de Data Binding com angular JS</h2>
-			<h3>Número de clicks {{count}}</h3>
-			<button type="button" class="btn btn-lg btn-primary" ng-click="plusOne()">+1</button>
-			<button type="button" class="btn btn-lg btn-danger"  ng-click="lessOne()">-1</button>	
+		<article>
+			<h3>Teste de Data Binding com angular JS</h2>
+			<div ng-controller="SugarCountCtrl">
+				<p><strong>Contador em {{count}}</strong></p>
+				<p>
+					<button type="button" class="btn btn btn-primary" ng-click="plusOne()">+1</button>
+					<button type="button" class="btn btn btn-danger"  ng-click="lessOne()">-1</button>
+				</p>
+			</div>
+			<p>
+				Isso é extremamente poderoso, a criação de uma controller por meio de uma função global e a total abstração
+				da manipulação do DOM, são caracteristicas que me fazem pensar na utilização do Angular.js
+			</p>
+			<div ng-controller="SugarCountCtrl">
+				<p><strong>Outro contador {{count}}</strong></p>
+				<p>
+					<button type="button" class="btn btn btn-success" ng-click="plusOne()">mais um</button>
+					<button type="button" class="btn btn btn-warning" ng-click="lessOne()">menos um</button>
+				</p>
+			</div>
+			<p>
+				Outro ponto que gostei muito é a praticidade de reaproveitamento, posso criar varios "componentes"
+				com o mesmo controller sem que um interfira no outro, talvez seja uma combinação poderosa pra o Polymer.
+			</p>
 		</article>
+	
 	</section>
 </body>
 </html>
